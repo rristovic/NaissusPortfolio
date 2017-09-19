@@ -33,7 +33,7 @@ body {
   width: 100%;
   height: 100%;
   color: black;
-  background-color: white; }
+  background-color: white;}
 
 html {
   width: 100%;
@@ -154,9 +154,9 @@ a {
   .masthead h5,
   .masthead h6 {
     font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    -webkit-text-shadow: 0px 5px 7px rgba(0,0,0,0.55);
-    -moz-text-shadow: 0px 5px 7px rgba(0,0,0,0.55);
-    text-shadow: 0px 5px 7px rgba(0,0,0,0.55);
+    -webkit-text-shadow: 0px 2px 6px rgba(0,0,0,0.55);
+    -moz-text-shadow: 0px 2px 6px rgba(0,0,0,0.55);
+    text-shadow: 0px 2px 6px rgba(0,0,0,0.55);
   }
 
   .masthead .intro-body {
@@ -164,16 +164,23 @@ a {
     vertical-align: middle; }
 
     .masthead .intro-body .brand-heading {
-      margin-top: -50px;    
-      margin-bottom: 120px;
-      font-size: 50px; }
-
-    .masthead .intro-body .brand-heading span.brand-label{
-      vertical-align: top;
-      font-size: 25px; }
+      margin-bottom: 40px;
+      font-size: 80px; }
 
     .masthead .intro-body .intro-text {
-      font-size: 18px; }
+      font-size: 18px; 
+  	  margin-bottom: 80px;}
+
+    .masthead .intro-body a {
+      margin-bottom: -50px;
+  	}
+
+  @media (max-width: 450px) {
+      .masthead .intro-body .brand-heading {
+        font-size: 50px; }
+
+      .masthead .intro-body .intro-text {
+        font-size: 18px; } }
 
   @media (min-width: 768px) {
     .masthead {
@@ -181,6 +188,26 @@ a {
       padding: 0; }
 
       .masthead .intro-body .brand-heading {
+        font-size: 100px; }
+
+      .masthead .intro-body .intro-text {
+        font-size: 22px; } }
+  @media (min-width: 992px) {
+    .masthead {
+      height: 100%;
+      padding: 0; }
+
+      .masthead .intro-body .brand-heading {
+        font-size: 100px; }
+
+      .masthead .intro-body .intro-text {
+        font-size: 22px; } }
+  @media (min-width: 1200px) {
+    .masthead {
+      height: 100%;
+      padding: 0; }
+
+      .masthead .intro-body .brand-heading {      	
         font-size: 100px; }
 
       .masthead .intro-body .intro-text {
@@ -217,31 +244,52 @@ a {
       padding-bottom: 150px; }
   }
 
-section#contact.content-section {
-  padding-top: 80px;
-  padding-bottom: 80px; }
-
-  section#contact.content-section h2{
-    margin-bottom: 80px;}
-
-  @media (min-width: 992px) {
-    section#contact.content-section {
-      padding-top: 100px;
-      padding-bottom: 100px; }
-  }
-
 #about {
     position: relative;
     z-index: 10;
-    -webkit-box-shadow: 0px 0px 20px 15px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 20px 15px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 20px 15px rgba(0,0,0,0.75);
-}
+    -webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);}
+    #about p {
+    	text-align: justify;
+    	text-justify: inter-word;}
+	#about br {
+		line-height: 40px;
+	}
+    #about .our-team {
+	  	color: white;
+    	position: relative;
+    	min-height: 250px;
+		overflow: hidden;
+    	padding: 0px;
+    	margin-top: 10px;
+    	text-align: right;
+    	border-radius: 5px;
+    	background-color: gray;
+  		background: url("../img/about/mac.jpg") no-repeat top center scroll;
+  		-webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;  }
+    #about .our-team:hover {
+    	color: #e4ae2b;
+    }
+	  #about .our-team h2,
+	  #about .our-team h3,
+	  #about .our-team h4 { 
+	  	font-size: 40px;
+	  	width: 100%;
+	  	position: absolute;
+	  	bottom: 0px;
+	  	margin: 0px;
+	  	padding: 10px 10px;	 
+	  	background-color: rgba(0,0,0,0.5);
+	  }
 
 .service-section {
   min-height: 800px;
   background: url("../img/services/wood_q10_b0-0.jpg") no-repeat bottom center scroll;
-  background-color: black;
+  background-color: white;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
@@ -266,13 +314,13 @@ section#contact.content-section {
   .service-section .content:hover{ 
         color: #e4ae2b;
         -webkit-transition: all 200ms ease-in;
-        -webkit-transform: scale(1.1); 
+        -webkit-transform: scale(1.025); 
         -ms-transition: all 200ms ease-in;
-        -ms-transform: scale(1.1); 
+        -ms-transform: scale(1.025); 
         -moz-transition: all 200ms ease-in;
-        -moz-transform: scale(1.1);
+        -moz-transform: scale(1.025);
         transition: all 200ms ease-in;
-        transform: scale(1.1);}
+        transform: scale(1.025);}
   .service-section .develop {
     background: url("../img/services/develop-bg_q50-b0.jpg") no-repeat bottom center scroll;
     -webkit-background-size: cover;
@@ -297,9 +345,9 @@ section#contact.content-section {
   background-color: white;
   position: relative;
   z-index: 10;
-  -webkit-box-shadow: 0px 0px 20px 15px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 20px 15px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 20px 15px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -340,6 +388,7 @@ section#contact.content-section {
             margin: 0 auto;
             cursor: pointer;}
             .portfolio-section .portfolio-item .portfolio-link img {
+            	min-height: 249px;
               width: 350px;
               height: 249px;}
             .portfolio-section .portfolio-item .portfolio-link .caption-overlay {
@@ -511,7 +560,6 @@ section#contact.content-section {
 /*========================================*/
 
 .contact-section {
-  padding: 200px 0px;
   color: white;
   background: url("../img/contact/forest-q35_b0-0.jpg") no-repeat bottom center scroll;
   background-color: black;
@@ -520,10 +568,17 @@ section#contact.content-section {
   -o-background-size: cover;
   background-size: cover; 
   }
+  .contact-section h2{
+    margin-bottom: 80px;}
   @media (min-width: 992px) {
     .contact-section {
-      padding-top: 250px !important;
-      padding-bottom: 250px !important; }
+      padding-top: 150px;
+      padding-bottom: 250px; }
+  }
+  @media (max-width: 992px) {
+    .contact-section {
+      padding-top: 150px;
+      padding-bottom: 150px; }
   }
 
 .btn {
@@ -591,3 +646,5 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); }
+
+

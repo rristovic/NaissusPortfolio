@@ -39,7 +39,7 @@
   //         PORTFOLIO SECTION
   //========================================
   var jssor_1_options = {
-    $AutoPlay: 1,
+    $AutoPlay: 0,
     $Idle: 0,
     $SlideDuration: 10000,
     $SlideEasing: $Jease$.$Linear,

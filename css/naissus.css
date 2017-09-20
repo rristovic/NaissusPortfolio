@@ -352,8 +352,24 @@ a {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+  .portfolio-section .technologies {
+  	margin-top: -20px;}
+  	.portfolio-section .technologies img{
+  		width: auto;
+  		height: 50px;
+  		margin-left: 5px;
+	  	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	    filter: grayscale(100%);}
+  	.portfolio-section .technologies img:hover{
+   		-webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+	    filter: grayscale(0);}
   .portfolio-section h2 {
     margin-bottom: 100px;}
+  .portfolio-section .slider-links {
+  	padding: 0px 55px;}
+  .portfolio-section .slider-links span{
+  	text-decoration: underline;
+  	cursor: pointer;}
   .portfolio-section .slider-wrapper {
     position: relative;
     padding: 0px 55px;}
@@ -450,24 +466,19 @@ a {
 .portfolio-modal .navigation{ 
   position: fixed;
   height: 100%; 
-  z-index: 10000;
-  }
+  z-index: 10000;}
   .portfolio-modal .navigation img{ 
     position: fixed;
     top: 45%; 
     height: 10%;
-    cursor: pointer;
-  }
+    cursor: pointer;}
   .portfolio-modal .navigation img:hover{ 
     cursor: pointer;
-    -webkit-filter: brightness(1.50); filter: brightness(1.50);
-  }
+    -webkit-filter: brightness(1.50); filter: brightness(1.50);}
   .portfolio-modal .navigation .left-nav{ 
-    left: 20px;
-  }
+    left: 20px;}
   .portfolio-modal .navigation .right-nav{
-    right: 20px;
-  }
+    right: 20px;}
 
 .portfolio-modal .modal-dialog {
   max-width: 100%;
@@ -486,9 +497,9 @@ a {
     border-radius: 0;
     color: black; }
   .portfolio-modal .modal-dialog .modal-content .image-loading {
-    padding: 100px;
     background-color: #f7f7f7;
-    box-shadow: inset 0px 0px 20px -5px black;}
+    box-shadow: inset 0px 0px 20px -5px black;
+}
 
     .portfolio-modal .modal-dialog .modal-content .project-descripion{
       text-align: left;
@@ -554,12 +565,16 @@ a {
 
 /*======== Portoflio specific css ========*/
 .portfolio-modal .modal-body img{
+  min-height: 300px;
+  min-width: 200px;
   height: 300px;
   width: auto;
 }
 .portoflio-modal-content.android .modal-body img {
   height: 500px;
   width: auto;
+  min-height: 300px;
+  min-width: 200px;
 }
 /*========================================*/
 

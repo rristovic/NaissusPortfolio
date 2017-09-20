@@ -39,7 +39,7 @@
   //         PORTFOLIO SECTION
   //========================================
   var jssor_1_options = {
-    $AutoPlay: 0,
+    $AutoPlay: 1,
     $Idle: 0,
     $SlideDuration: 10000,
     $SlideEasing: $Jease$.$Linear,
@@ -61,15 +61,9 @@
     curIndex += 3;
     if(curIndex >= count) {
       curIndex = curIndex - count;
-    }
+    }      
 
-
-    portfolioSlider.$GoTo(curIndex);
-    // Slider autoplay fix
-    $('.slides').simulate("drag", {dy: 1});   
-    $('.slides').simulate("mouseenter");     
-    $('.slides').simulate("mouseleave");     
-
+    slideTo(curIndex);
   });
   $('.portfolio-section .slider_left').click(function(){
     var count = portfolioSlider.$SlidesCount();
@@ -79,12 +73,20 @@
     if(curIndex < 0) {
       curIndex = count + curIndex;
     }
-    portfolioSlider.$GoTo(curIndex);
-    // Slider autoplay fix
-    $('.slides').simulate("drag", {dy: 1});  
-    $('.slides').simulate("mouseenter");     
-    $('.slides').simulate("mouseleave");        
+    slideTo(curIndex);      
   }); 
+
+  function slideTo(index) {
+    var slides = $('.slides');
+    portfolioSlider.$GoTo(index);
+    // Slider autoplay fix
+    var i = setInterval(function() {
+      slides.simulate("drag", {dy: 1});  
+      slides.simulate("mouseenter");     
+      slides.simulate("mouseleave");  
+      clearInterval(i);
+    }, 1000);    
+  };
 
    // Hover function for potfolio items
   $('#portfolio .portfolio-item .portfolio-link').hover(
@@ -99,6 +101,27 @@
     var modalIndexToOpen = $(e.currentTarget).data('index');
     var modalToOpen = $(portfolioArray[modalIndexToOpen]);
     replaceModalAndShow(modalToOpen);
+  });
+
+  // Portfolio slider links click listener
+  $('.slider-links span').click(function(e) {
+    switch($(e.target).data('link')){
+      case 'ad': {
+        slideTo(3);
+        break;
+      }
+      case 'wd': {
+        slideTo(0);
+        break;
+      }
+      case 'gd': {
+        slideTo(6);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   });
 
   // Portofolio modals
@@ -146,44 +169,46 @@
     }
     // Turn on click listeners
     modalHolder.children().eq(0).find('.navigation').click(navClick);
+
     // Load images
-    loadImages(newModal);
+    loadImages(modalHolder);
+   
   }
 
+  // Lazy loading modal images
   function loadImages(modal) {
-    var x = setInterval(function() {
-      var modalHolder = $('#portfolioModalHolder').children(0);
-      var imgs = modalHolder.find('img.image-loading');
-      var modalImages = modal.find('img.image-loading');
+    var i = setInterval(function(){
+       var imgs = modal.find('img.image-loading');
       for (var i = imgs.length - 1; i >= 0; i--) {
-        // Repalce modal holder images
-        var img = imgs.eq(i);
-        img.attr('src', img.data('src'));
-        img.removeClass('image-loading');
         // Replace original modal images
-        var modalImg = modalImages.eq(i);
+        var modalImg = imgs.eq(i);
         modalImg.attr('src', modalImg.data('src'));
         modalImg.removeClass('image-loading');
         console.log("replacing images");
-      }
-      clearInterval(x);
-    }, 2000);
-   
+      }   
+      clearInterval(i);
+    },5000);
+     
   }
 
   $(document).keydown(function(e) {
     var modalHolder = $('#portfolioModalHolder');
     if(modalHolder.hasClass('show'))
       switch(e.which) {
-          case 37: {// left
+          case 37: {// left arrow
             // Workaround for currentTarget event property
             navClick({target:modalHolder.find('.left-nav')[0]})
             e.preventDefault();  
             break;
           };
-          case 39: {// right\
+          case 39: {// right arrow
             // Workaround for currentTarget event property
             navClick({target:modalHolder.find('.right-nav')[0]})
+            e.preventDefault();  
+            break;
+          };
+          case 27: {// Esc
+            modalHolder.modal('hide');            
             e.preventDefault();  
             break;
           };

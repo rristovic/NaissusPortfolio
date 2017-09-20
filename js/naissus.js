@@ -168,28 +168,32 @@
       modalHolder.modal('show');
     }
     // Turn on click listeners
-    modalHolder.children().eq(0).find('.navigation').click(navClick);
-
+    modalHolder.children().eq(0).find('.navigation').click(navClick);   
     // Load images
-    loadImages(modalHolder);
-   
+    loadImages(newModal);
   }
 
   // Lazy loading modal images
   function loadImages(modal) {
-   var imgs = modal.find('img.image-to-load');
-   for (var i = imgs.length - 1; i >= 0; i--) {
-        // Replace original modal images
-        var modalImg = imgs.eq(i);
+    var modalHolder = $('#portfolioModalHolder');
+    var modalImages = modalHolder.find('img.image-to-load');
+    var imgs = modal.find('img.image-to-load');
+    for (var i = modalImages.length - 1; i >= 0; i--) {
+        // Replace images in modal placeholder
+        var modalImg = modalImages.eq(i);
+        var originalImg = imgs.eq(i);
         modalImg.attr('src', modalImg.data('src'));
         modalImg[0].onload = function(e) {
+          // Show image in modal holder
           var imageToShow = $(e.target);
           $(e.target).next().fadeOut(400, function() {
-            imageToShow.fadeIn(400, function() {
-              imageToShow.removeClass('image-to-load');
-            });
+            imageToShow.fadeIn(400);
           });
         };
+        // Replace original image
+        originalImg.attr('src', modalImg.data('src'));
+        originalImg.removeClass('image-to-load');
+        originalImg.next().remove();
         console.log("replacing images");
     }        
   }

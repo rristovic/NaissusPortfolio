@@ -146,6 +146,29 @@
     }
     // Turn on click listeners
     modalHolder.children().eq(0).find('.navigation').click(navClick);
+    // Load images
+    loadImages(newModal);
+  }
+
+  function loadImages(modal) {
+    var x = setInterval(function() {
+      var modalHolder = $('#portfolioModalHolder').children(0);
+      var imgs = modalHolder.find('img.image-loading');
+      var modalImages = modal.find('img.image-loading');
+      for (var i = imgs.length - 1; i >= 0; i--) {
+        // Repalce modal holder images
+        var img = imgs.eq(i);
+        img.attr('src', img.data('src'));
+        img.removeClass('image-loading');
+        // Replace original modal images
+        var modalImg = modalImages.eq(i);
+        modalImg.attr('src', modalImg.data('src'));
+        modalImg.removeClass('image-loading');
+        console.log("replacing images");
+      }
+      clearInterval(x);
+    }, 2000);
+   
   }
 
   $(document).keydown(function(e) {

@@ -177,18 +177,21 @@
 
   // Lazy loading modal images
   function loadImages(modal) {
-    var i = setInterval(function(){
-       var imgs = modal.find('img.image-loading');
-      for (var i = imgs.length - 1; i >= 0; i--) {
+   var imgs = modal.find('img.image-to-load');
+   for (var i = imgs.length - 1; i >= 0; i--) {
         // Replace original modal images
         var modalImg = imgs.eq(i);
         modalImg.attr('src', modalImg.data('src'));
-        modalImg.removeClass('image-loading');
+        modalImg[0].onload = function(e) {
+          var imageToShow = $(e.target);
+          $(e.target).next().fadeOut(400, function() {
+            imageToShow.fadeIn(400, function() {
+              imageToShow.removeClass('image-to-load');
+            });
+          });
+        };
         console.log("replacing images");
-      }   
-      clearInterval(i);
-    },5000);
-     
+    }        
   }
 
   $(document).keydown(function(e) {

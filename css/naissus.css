@@ -499,7 +499,10 @@ a {
   .portfolio-modal .modal-dialog .modal-content .image-loading {
     background-color: #f7f7f7;
     box-shadow: inset 0px 0px 20px -5px black;
-}
+	}
+  .portfolio-modal .modal-dialog .modal-content .image-to-load {
+    display: none;
+	}
 
     .portfolio-modal .modal-dialog .modal-content .project-descripion{
       text-align: left;

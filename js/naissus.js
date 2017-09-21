@@ -113,7 +113,7 @@
   $('.slider-links span').click(function(e) {
     switch($(e.target).data('link')){
       case 'ad': {
-        slideTo(3);
+        slideTo(6);
         break;
       }
       case 'wd': {

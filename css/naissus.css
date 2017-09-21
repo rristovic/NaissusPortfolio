@@ -1,6 +1,10 @@
 /*!
  * Copyright © 2017 Nassisus CDN | All Rights Reserved
  */
+
+ /* default color: rgba(228, 174, 43, 0.7);
+ 	default color hex: #e4ae2b; */
+
 @font-face {
     font-family: 'UbuntuRegular';
     src: url('../font/ubuntu/ubuntu-r.eot');
@@ -73,8 +77,8 @@ a {
     color: #e4ae2b; }
 
 .center-cropped {
-  object-fit: cover; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
+  object-fit: cover; 
+  object-position: center;
 }
 
 #mainNav {
@@ -287,6 +291,8 @@ a {
 	  }
 
 .service-section {
+	overflow: hidden;
+	position: relative;
   min-height: 800px;
   background: url("../img/services/wood_q10_b0-0.jpg") no-repeat bottom center scroll;
   background-color: white;
@@ -309,6 +315,12 @@ a {
     -webkit-box-shadow: 0px 5px 11px 2px rgba(0,0,0,0.55);
     -moz-box-shadow: 0px 5px 11px 2px rgba(0,0,0,0.55);
     box-shadow: 0px 5px 11px 2px rgba(0,0,0,0.55);}
+    @media (max-width: 992px){
+	    .service-section .content{
+	    	margin-bottom: 20px;
+	    	min-height: 250px;
+	    }
+	}
     .service-section .content p{
       color: black;}
   .service-section .content:hover{ 
@@ -321,37 +333,69 @@ a {
         -moz-transform: scale(1.025);
         transition: all 200ms ease-in;
         transform: scale(1.025);}
-  .service-section .develop {
-    background: url("../img/services/develop-bg_q50-b0.jpg") no-repeat bottom center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-  .service-section .design {
-    background: url("../img/services/design-bg_q10-b0.jpg") no-repeat bottom center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-  .service-section .support {
-    background: url("../img/services/support-bg_q10-b0.jpg") no-repeat bottom center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
+	  .service-section .develop {
+	    background: url("../img/services/develop-bg_q50-b0.jpg") white no-repeat bottom center scroll;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover; }
+	  .service-section .design {
+	    background: url("../img/services/design-bg_q10-b0.jpg") white no-repeat bottom center scroll;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover; }
+	  .service-section .support {
+	    background: url("../img/services/support-bg_q10-b0.jpg") white no-repeat bottom center scroll;
+	    -webkit-background-size: cover;
+	    -moz-background-size: cover;
+	    -o-background-size: cover;
+	    background-size: cover; }
+
+	    .service-section .bottom-shadow {
+	    	position: absolute;
+		    bottom: 0;
+		    left: -100px;
+		    height: 300px;
+		    width: 150%;
+    		box-shadow: inset 0px -25px 25px -15px rgba(0,0,0,0.75);
+	    }
 
 .portfolio-section {
   color: black;
-  background-color: white;
+  margin-bottom: -150px;
   position: relative;
   z-index: 10;
-  -webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
+  background-color: white;
+  /*-webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover; 
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.75));
+  clip-path: polygon(0% 0%, 100% 0, 100% 85%, 50% 95%, 0 85%);}
+  @media(max-width: 992px){
+  	.portfolio-section .container {
+  		margin: 0px;
+  		max-width: initial;}
+  }
+  @media(min-width: 768px) {
+  	.portfolio-section {
+  		padding-bottom: 150px;
+  		clip-path: polygon(0% 0%, 100% 0, 100% 90%, 50% 100%, 0 90%);}
+  }
+  @media(min-width: 992px) {
+  	.portfolio-section {
+  		padding-bottom: 180px;
+  	}
+  }
+  @media(max-width: 768px) {
+  	.portfolio-section {
+  		clip-path: polygon(0% 0%, 100% 0, 100% 95%, 50% 100%, 0 95%);}
+  }
+
   .portfolio-section .technologies {
   	margin-top: -20px;}
   	.portfolio-section .technologies img{
@@ -363,18 +407,25 @@ a {
   	.portfolio-section .technologies img:hover{
    		-webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
 	    filter: grayscale(0);}
+
   .portfolio-section h2 {
     margin-bottom: 100px;}
+   
   .portfolio-section .slider-links {
   	padding: 0px 55px;}
-  .portfolio-section .slider-links span{
-  	text-decoration: underline;
-  	cursor: pointer;}
+	.portfolio-section .slider-links span{
+		text-decoration: underline;
+		cursor: pointer;}
+
   .portfolio-section .slider-wrapper {
     position: relative;
     padding: 0px 55px;}
-    .portfolio-section .slider{
-    }
+  @media (max-width: 992px) {
+  	.portfolio-section .slider-wrapper {
+  		padding: 0px;}
+  }
+
+  .portfolio-section .slider{}
     .portfolio-section .slider #jssor_1 {
       width: 100%;
       height: 300px;}
@@ -388,6 +439,7 @@ a {
           width:25px;height:275px;
           position:absolute;top:0px;right:0px;
           box-shadow: inset -25px 0px 15px -20px rgba(0,0,0,0.75);}
+
       .portfolio-section .slider .portfolio-item-wrapper { 
         margin: 5px 10px 10px 10px;
         padding: 5px;
@@ -452,6 +504,11 @@ a {
       top: 40%;
       position: absolute;
       cursor: pointer;}
+	    @media (max-width: 992px){
+	    	.portfolio-section .slider_nav{
+	    		display: none;
+	    	}
+	    }
     .portfolio-section .slider_nav:hover{
       -moz-filter: brightness(1.50);
       filter: brightness(1.50);}
@@ -459,6 +516,15 @@ a {
       left: 0px;}
     .portfolio-section .slider_right{
       right: 0px;}
+
+    .portfolio-section .spicerajka {
+    	/*background-color: white;
+     	position: absolute;
+     	bottom: -100px;
+     	height: 200px;
+     	width: 100%;*/
+    	
+    }
 
 .portfolio-section * {
   z-index: 2; }
@@ -594,12 +660,12 @@ a {
     margin-bottom: 80px;}
   @media (min-width: 992px) {
     .contact-section {
-      padding-top: 150px;
-      padding-bottom: 250px; }
+      padding-top: 240px;
+      padding-bottom: 150px; }
   }
   @media (max-width: 992px) {
     .contact-section {
-      padding-top: 150px;
+      padding-top: 220px;
       padding-bottom: 150px; }
   }
 
@@ -668,5 +734,15 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); }
+
+ .scroll-top {
+ 	display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+ }
 
 

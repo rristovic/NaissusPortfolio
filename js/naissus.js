@@ -35,6 +35,16 @@
     }
   });
 
+  // Scroll to top buttom visibility
+  window.onscroll = function(){
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        $('.scroll-top').show(500);
+    } else {
+        $('.scroll-top').hide(500);
+    }
+  };
+
+
   //========================================
   //         PORTFOLIO SECTION
   //========================================
@@ -45,11 +55,7 @@
     $SlideEasing: $Jease$.$Linear,
     $PauseOnHover: 4,
     $SlideWidth: 350,
-    $Cols: 3,
-    $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$,
-                $ChanceToShow: 2
-    }
+    $Cols: 3
   };
 
   portfolioSlider = new $JssorSlider$("jssor_1", jssor_1_options);
@@ -115,7 +121,6 @@
         break;
       }
       case 'gd': {
-        slideTo(6);
         break;
       }
       default: {

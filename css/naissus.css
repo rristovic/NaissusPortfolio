@@ -4,30 +4,22 @@
 
  /* default color: rgba(228, 174, 43, 0.7);
  	default color hex: #e4ae2b; */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../font/ubuntu/ubuntu-l.woff') format('woff');
+    font-weight: 100;
+}
 
 @font-face {
-    font-family: 'UbuntuRegular';
-    src: url('../font/ubuntu/ubuntu-r.eot');
-    src: url('../font/ubuntu/ubuntu-r.eot') format('embedded-opentype'),
-         url('../font/ubuntu/ubuntu-r.woff') format('woff'),
-         url('../font/ubuntu/ubuntu-r.ttf') format('truetype'),
-         url('../font/ubuntu/ubuntu-r.svg#UbuntuRegular') format('svg');
+    font-family: 'Ubuntu';
+    src: url('../font/ubuntu/ubuntu-r.woff') format('woff');');
+    font-weight: 400;
 }
+
 @font-face {
-    font-family: 'UbuntuBold';
-    src: url('../font/ubuntu/ubuntu-b.eot');
-    src: url('../font/ubuntu/ubuntu-b.eot') format('embedded-opentype'),
-         url('../font/ubuntu/ubuntu-b.woff') format('woff'),
-         url('../font/ubuntu/ubuntu-b.ttf') format('truetype'),
-         url('../font/ubuntu/ubuntu-b.svg#UbuntuBold') format('svg');
-}
-@font-face {
-    font-family: 'UbuntuLight';
-    src: url('../font/ubuntu/ubuntu-l.eot');
-    src: url('../font/ubuntu/ubuntu-l.eot') format('embedded-opentype'),
-         url('../font/ubuntu/ubuntu-l.woff') format('woff'),
-         url('../font/ubuntu/ubuntu-l.ttf') format('truetype'),
-         url('../font/ubuntu/ubuntu-l.svg#UbuntuLight') format('svg');
+    font-family: 'Ubuntu';
+    src: url('../font/ubuntu/ubuntu-b.woff') format('woff');
+    font-weight: 700;
 }
 
 body {
@@ -432,10 +424,13 @@ a {
       .portfolio-section .slider #jssor_1 .slides {
         width:100%;height:290px;}
         .portfolio-section .slider #jssor_1 .left-shadow {
+          z-index: 10 !important;
+
           width:25px;height:275px;
           box-shadow: inset 25px 0px 15px -20px rgba(0,0,0,0.75);
           position:absolute;top:0px;left:0px;}
         .portfolio-section .slider #jssor_1 .right-shadow {
+          z-index: 10 !important;
           width:25px;height:275px;
           position:absolute;top:0px;right:0px;
           box-shadow: inset -25px 0px 15px -20px rgba(0,0,0,0.75);}

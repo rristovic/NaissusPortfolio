@@ -307,11 +307,16 @@ a {
     -webkit-box-shadow: 0px 5px 11px 2px rgba(0,0,0,0.55);
     -moz-box-shadow: 0px 5px 11px 2px rgba(0,0,0,0.55);
     box-shadow: 0px 5px 11px 2px rgba(0,0,0,0.55);}
+    @media (max-width: 1200px){
+      .service-section .content{
+        min-height: 600px;
+      }
+    }
     @media (max-width: 992px){
-	    .service-section .content{
-	    	margin-bottom: 20px;
-	    	min-height: 250px;
-	    }
+      .service-section .content{
+        margin-bottom: 20px;
+        min-height: 250px;
+      }
 	}
     .service-section .content p{
       color: black;}
